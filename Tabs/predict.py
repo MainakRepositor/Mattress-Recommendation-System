@@ -40,7 +40,7 @@ def app(df, X, y):
     Angle = st.slider("Angle", int(df["Angle"].min()), int(df["Angle"].max()))
     Rigidness = st.slider("Rigidness", int(df["Rigidness"].min()), int(df["Rigidness"].max()))
     Fluid = st.slider("Sinovial Fluid", int(df["Fluid"].min()), int(df["Fluid"].max()))
-    Height = st.slider("Height", int(df["Height"].min()), int(df["Height"].max()))
+    Height = st.slider("Height", 70, 200)
     Peak = st.slider("Peak", int(df["Peak"].min()), int(df["Peak"].max()))
     Density = st.slider("Density", float(df["Density"].min()), float(df["Density"].max()))
     Comfort = st.slider("Comfort", float(df["Comfort"].min()), float(df["Comfort"].max()))
@@ -62,18 +62,38 @@ def app(df, X, y):
 
         if x < 10 or Stiffness > 100:
             st.error("You must change your mattress. Switch to a softer one.")
+            st.markdown(
+    f'<a href="https://www.amazon.in/s?k=soft+mattress&ref=nb_sb_noss" target="_blank" style="display: inline-block; padding: 12px 20px; background-color: orange; color: white; text-align: center; text-decoration: none; font-size: 16px; border-radius: 4px;">Buy Mattress</a>',
+    unsafe_allow_html=True
+)
         
         elif x > 10 and x < 20 or Stiffness > 50 and Stiffness < 100:
             st.success("You are in the Goldilocks Zone. We recommend heated mattress for you!")
+            st.markdown(
+    f'<a href="https://www.amazon.in/s?k=heating+mattress&ref=nb_sb_noss_2" target="_blank" style="display: inline-block; padding: 12px 20px; background-color: orange; color: white; text-align: center; text-decoration: none; font-size: 16px; border-radius: 4px;">Buy Mattress</a>',
+    unsafe_allow_html=True
+)
             
         elif Angle > 45:
             st.info("Recommended for you : Bi-curve / craddle mattress")
+            st.markdown(
+    f'<a href="https://www.amazon.in/s?k=adjustable+mattress&ref=nb_sb_ss_ts-doa-p_2_15" target="_blank" style="display: inline-block; padding: 12px 20px; background-color: orange; color: white; text-align: center; text-decoration: none; font-size: 16px; border-radius: 4px;">Buy Mattress</a>',
+    unsafe_allow_html=True
+)
 
         elif Friction > 25:
             st.info("Recommended for you : Linen-touch silken mattress")
+            st.markdown(
+    f'<a href="https://www.amazon.in/s?k=silken+mattress&ref=nb_sb_noss" target="_blank" style="display: inline-block; padding: 12px 20px; background-color: orange; color: white; text-align: center; text-decoration: none; font-size: 16px; border-radius: 4px;">Buy Mattress</a>',
+    unsafe_allow_html=True
+)
 
         elif Comfort > 0.80:
             st.info("Recommended for you: Maharaja Mattress, with extra soft finish and body shape auto-curvature with heating")
+            st.markdown(
+    f'<a href="https://www.amazon.in/s?k=smart+heating+mattress&ref=nb_sb_noss" target="_blank" style="display: inline-block; padding: 12px 20px; background-color: orange; color: white; text-align: center; text-decoration: none; font-size: 16px; border-radius: 4px;">Buy Mattress</a>',
+    unsafe_allow_html=True
+)
 
         else:
             st.warning("You must change to a harder one.")
